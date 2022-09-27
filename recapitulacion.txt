@@ -1,0 +1,200 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {   
+	
+	// *** Declaracion de constantes:
+	// Es un valor que no va a varia en el tiempo
+	const pi1 float64 = 3.14
+	const pi2 = 3.1415
+
+	fmt.Println("pi1: ", pi1)
+	fmt.Println("PI: ", pi2)
+
+	// *** Declaracion variables enteras
+
+	base := 12          // Utilizar ":=" indica que es la primera vez que se inicializa la variable entera
+	var altura int = 14 // se utiliza "var" + "nombre de variable" + "tipo de variable"
+	var area int        //Se crea data con tipo pero sin inicializar, osea vacio (en caso de string es "vacio")
+
+	fmt.Println(base, altura, area)
+
+	// Zero values: Valor por defecto para variables sin inicializar,
+
+	var a int
+	var b float64
+	var c string
+	var d bool
+
+	fmt.Println(a, b, c, d)
+
+	// Area Cuadrado.
+
+	const baseCuadrado = 10
+	areaCuadrado := baseCuadrado * baseCuadrado
+
+	fmt.Println("Area del cuadrado: ", areaCuadrado)
+
+	// *** operaciones basicas
+
+    x := 10
+	y := 50
+
+	// suma "+"
+	result := x + y
+	fmt.Println("Suma: ", result)
+
+	// resta "-"
+	result = y - x
+	fmt.Println("Resta: ", result)
+
+	// multiplicacion "*"
+	result = x * y
+	fmt.Println("Multiplicación: ", result)
+
+	// division cociente "/"
+	result = y / x
+	fmt.Println("multiplicacion cociente: ", result)
+
+	// division reciduo "%" (modulo)
+	result = y % x
+	fmt.Println("division residuo: ", result)
+
+	//inclemetnal = incremental suma una (01) unidad a una variable
+	x++
+	fmt.Println("incremental de 10: ", x)
+
+	//decremental = disminuye, resta una unidad en uno a una variable.
+	x--
+	fmt.Println("decremental de 11: ", x)
+
+    // *** Datos primitivos, tipos de datos
+
+	// int: Numeros enteros,
+	//	Si no defines indice, por defecto toma segun la arquitectura del equipo de computo
+	// 	int8 = 8bits = -128 a 127
+	// 	int16 = 16bits = -2^15 a 2^15-1
+	// 	int32 = 32bits = -2^31 a 2^31-1
+	// 	int64 = 64bits = -2^63 a 2^63-1
+
+	// Optimizar memoria cuando sabemos que el dato simpre va ser positivo
+	// 	uint = Depende del OS (32 o 64 bits)
+	// 	uint8 = 8bits = 0 a 127
+	// 	uint16 = 16bits = 0 a 2^15-1
+	// 	uint32 = 32bits = 0 a 2^31-1
+	// 	uint64 = 64bits = 0 a 2^63-1
+
+	// numeros decimales
+	// 	float32 = 32 bits = +/- 1.18e^-38 +/- -3.4e^38
+	// 	float64 = 64 bits = +/- 2.23e^-308 +/- -1.8e^308
+
+	// textos
+	// 	string = "", es neceasio definir texto entre comillas.
+	// booleanos
+	// 	bool = true or false
+
+	// numeros complejos
+	// 	Complex64 = Real e Imaginario float32
+	// 	Complex128 = Real e Imaginario float64
+	// 		Ejemplo : c:=10 + 8i
+
+	// *** Paquete fmt: interactuar en consola
+
+	//Println: imprime con salto de linea
+
+	helloMessage := "Hello"
+	worlMessage := "world"
+
+	fmt.Println(helloMessage, worlMessage)
+	fmt.Println(helloMessage, worlMessage)
+
+	//Pritnf: imprimir con formato
+
+	nombre := "Platzi"
+	cursos := 500
+
+	// %s = recibe un string
+	// %d = recibe un entero
+	// \n salto de linea
+
+	fmt.Printf("%s tiene más de %d cursos\n", nombre, cursos)
+
+	// %v = no se sabe que tipo de dato se recibe
+	fmt.Printf("%v tiene más de %v cursos\n", nombre, cursos)
+
+	/*
+		Cuando sabemos que tipo de variables son podemos usar
+
+			bool:                    %t
+			int, int8 etc.:          %d
+			uint, uint8 etc.:        %d, %#x if printed with %#v
+			float32, complex64, etc: %g
+			string:                  %s
+			chan:                    %p
+			pointer:                 %p
+	*/
+
+	// Sprintf: Guarda un string
+	message := fmt.Sprintf("%s tiene más de %d cursos", nombre, cursos)
+	fmt.Println(message)
+
+	// Tipo de dato, conocer
+
+	fmt.Printf("helloMessage: %T\n", helloMessage)
+	fmt.Printf("cursos: %T\n", cursos)
+
+// **** Redundar en codigo -FUNCIONES Y FUNCIONES ANONIMAS
+
+import (
+	"fmt"
+	"math"
+)
+
+
+// 1. se utiliza la palabra reservada "func"
+func nombreFuncion(nombreVariable string) {
+	fmt.Println(nombreVariable)
+}
+
+// 2. en ocaciones se necesitan multiples argumentos y tipos de datos
+// Se puede agrupár los mismos tipos de datos ejemplo: a, b int
+func multipleArgumento(a, b int, c float64, d string, e bool) {
+	fmt.Println(a, b, c, d, e)
+}
+
+// 3. Funcion que retorna un valor.
+func retornaValor(base, altura uint) uint {
+	return base * altura
+}
+
+// 4. Funcion que retoran varios valores
+func retoroMultiple(radio float64) (circunferenciaCirculo, areaCirculo float64) {
+	return 2 * math.Pi * radio, math.Pi * math.Pow(radio, 2)
+
+}
+
+func main() {
+	// se invoca la funcion llamandola por su nombre y escribiendo en los parentesis el valor de los argumentos o variables
+
+	// 1. funcion nombreFuncion
+	nombreFuncion("Hola Mundo")
+
+	// 2. funcion multipleArgumneto
+	multipleArgumento(1, 2, 3.1415, "hola", false)
+
+	// 3. funcion retornaValor
+	areaRectangulo := retornaValor(2, 4)
+	fmt.Println("Area Rectangulo: ", areaRectangulo)
+
+	// 4. funcion retornoMultiple
+	circunferencia, areaCirculo := retoroMultiple(13)
+	fmt.Printf("Circunferencia: %g \nArea de un circulo: %g", circunferencia, areaCirculo)
+
+	// 4.1 funcion retornoMultiple, CON UN SOLO RETURN
+	_, areaCirculo2 := retoroMultiple(3)
+	// SE REEMPLAZA LA VARIABLE RETORANDA POR UN guion piso "_"
+	fmt.Printf("Area de un circulo: %g\n", areaCirculo2)
+}
