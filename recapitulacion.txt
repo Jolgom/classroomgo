@@ -197,4 +197,41 @@ func main() {
 	_, areaCirculo2 := retoroMultiple(3)
 	// SE REEMPLAZA LA VARIABLE A RETORNAR POR UN guion piso "_"
 	fmt.Printf("Area de un circulo: %g\n", areaCirculo2)
+
+	// **** Documentacion en go 
+	// go doc
+}
+
+// *** CICLOS
+// EN go SOLO EXISTE UN CICLO, << for >>
+
+func main() {
+	// 01.	for basico: condicional (FOR TRADICIONAL)
+	// 		IDNICAR AL INICIO PARA QUE ITERE, INCREMENTE Y FINALICE SEGUN LA CONDICION.
+	for i := 0; i <= 3; i++ {
+		fmt.Println("la iternacia es: ", i)
+	}
+
+	// 02.	for while
+	// 		SE DEBE CUMPLIR UNA CONDICION PARA QUE FINALICE EL CICLO.
+	//		la condicion se define previamente
+	contador := 4
+	for contador < 8 {
+		fmt.Println("la iternacia es: ", contador)
+		contador++
+	}
+
+	// 03. for forever: ITERANDO HASTA LA ETERNIDAD
+	//		NO SE ESPECIFICA NINGUNA CONDICION, SE EJECUTARA HASTA EL INFINITO
+	contador = 4
+	for {
+		fmt.Println("la iternacia es: ", contador)
+		contador++
+	}
+	// 04. for REVERSA
+	contador = 11
+	for 8 <= contador {
+		fmt.Println("la iternacia es: ", contador)
+		contador--
+	}
 }
