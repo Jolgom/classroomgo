@@ -1,30 +1,39 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+	"strconv"
+)
 
-// *** CICLOS
-// EN go SOLO EXISTE UN CICLO, << for >>
+// *** 	CONDICIONALES
 
+// if
 func main() {
-	// 01.	for basico: condicional (FOR TRADICIONAL)
-	// 		IDNICAR AL INICIO PARA QUE ITERE, INCREMENTE Y FINALICE SEGUN LA CONDICION.
-	for i := 0; i <= 3; i++ {
-		fmt.Println("la iternacia es: ", i)
+	valor1 := 1
+	valor2 := 2
+
+	if valor1 == 1 {
+		fmt.Println("Es 1")
+	} else {
+		fmt.Println("No es 1")
 	}
 
-	// 02.	for while
-	// 		SE DEBE CUMPLIR UNA CONDICION PARA QUE FINALICE EL CICLO.
-	//		la condicion se define previamente
-	contador := 4
-	for contador < 8 {
-		fmt.Println("la iternacia es: ", contador)
-		contador++
+	// compuerta AND
+	if valor1 == 0 && valor2 == 2 {
+		fmt.Println("ambas Son verdad")
+	} else {
+		fmt.Println("AL MENOS UNA ES FALSA")
 	}
 
-	// 04. for REVERSA
-	contador = 11
-	for 8 <= contador {
-		fmt.Println("la iternacia es: ", contador)
-		contador--
+	// compuerta OR
+	if valor1 == 1 || valor2 == 2 {
+		fmt.Println("AL MENOS UNA ES VERDADERA")
 	}
+	// CONVERTIR TEXTO A NUMERO
+	value, err := strconv.Atoi("20")
+	if err != nil { // nil : palabra reservada del lenguaje para indicar que no hay error
+		log.Fatal(err)
+	}
+	fmt.Println("Valor: ", value)
 }
