@@ -1,39 +1,29 @@
 package main
 
-import (
-	"fmt"
-	"log"
-	"strconv"
-)
+import "fmt"
 
 // *** 	CONDICIONALES
 
-// if
+// SWITCH : Utilizar multiples condiciones anidadas
 func main() {
-	valor1 := 1
-	valor2 := 2
 
-	if valor1 == 1 {
-		fmt.Println("Es 1")
-	} else {
-		fmt.Println("No es 1")
-	}
-
-	// compuerta AND
-	if valor1 == 0 && valor2 == 2 {
-		fmt.Println("ambas Son verdad")
-	} else {
-		fmt.Println("AL MENOS UNA ES FALSA")
+	// con condicion especificada
+	modulo := 5 % 2
+	switch modulo {
+	case 0:
+		fmt.Println("Es Par")
+	default:
+		fmt.Println("Es Impar")
 	}
 
-	// compuerta OR
-	if valor1 == 1 || valor2 == 2 {
-		fmt.Println("AL MENOS UNA ES VERDADERA")
+	// sin condicion especificada
+	valor := 50
+	switch {
+	case valor > 100:
+		fmt.Println("Valor Es mayor que 100")
+	case valor < 0:
+		fmt.Println("Valor Es menor que 0")
+	default:
+		fmt.Println("No es una condicion")
 	}
-	// CONVERTIR TEXTO A NUMERO
-	value, err := strconv.Atoi("20")
-	if err != nil { // nil : palabra reservada del lenguaje para indicar que no hay error
-		log.Fatal(err)
-	}
-	fmt.Println("Valor: ", value)
 }
