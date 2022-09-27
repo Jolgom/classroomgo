@@ -48,6 +48,6 @@ func main() {
 
 	// 4.1 funcion retornoMultiple, CON UN SOLO RETURN
 	_, areaCirculo2 := retoroMultiple(3)
-	// SE REEMPLAZA LA VARIABLE RETORANDA POR UN guion piso "_"
+	// SE REEMPLAZA LA VARIABLE A RETORNAR POR UN guion piso "_"
 	fmt.Printf("Area de un circulo: %g\n", areaCirculo2)
 }
