@@ -2,28 +2,31 @@ package main
 
 import "fmt"
 
-// *** 	CONDICIONALES
+// *** 	KEYWORDS
 
-// SWITCH : Utilizar multiples condiciones anidadas
+// break
+// continue
+
+// defer: ejecuta line de codigo al final
+//
+//	la buena practica es usar solo defer por codigo
 func main() {
+	defer fmt.Println("Hola")
+	fmt.Println("Mundo")
 
-	// con condicion especificada
-	modulo := 5 % 2
-	switch modulo {
-	case 0:
-		fmt.Println("Es Par")
-	default:
-		fmt.Println("Es Impar")
+	// continue y break	se utiliza en un for
+
+	for i := 0; i < 10; i++ {
+		fmt.Print(i)
+
+		if i == 2 {
+			fmt.Print(" Es 2 ")
+			continue
+		}
+		if i == 8 {
+			fmt.Print(" Fin Forzado ")
+			break
+		}
 	}
 
-	// sin condicion especificada
-	valor := 50
-	switch {
-	case valor > 100:
-		fmt.Println("Valor Es mayor que 100")
-	case valor < 0:
-		fmt.Println("Valor Es menor que 0")
-	default:
-		fmt.Println("No es una condicion")
-	}
 }
