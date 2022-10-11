@@ -43,4 +43,10 @@ func main() {
 	v, o := urna["ALCALDE4"]
 	fmt.Println(v, o)
 
+	x := urna["ALCALDE3"]
+	fmt.Println(x)
+
+	_, y := urna["ALCALDE3"]
+	fmt.Println(y)
+
 }
