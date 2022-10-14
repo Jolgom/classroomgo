@@ -1,4 +1,4 @@
-package carro
+package dominio
 
 import "fmt"
 
