@@ -1,7 +1,7 @@
 package main
 
 import (
-	"curso_golang_platzi/classroomgo/carro"
+	carro "curso_golang_platzi/classroomgo/carro"
 	"fmt"
 )
 
